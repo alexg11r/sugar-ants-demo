@@ -1,0 +1,16 @@
+{
+  "name": "Sugar Ants — Медитативная колония",
+  "short_name": "Sugar Ants",
+  "description": "Медитативная пиксельная игра о колонии муравьёв, прогрызающих пути к сахару и открывающих скрытые картины.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#030507",
+  "theme_color": "#08120d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
