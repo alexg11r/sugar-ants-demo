@@ -12,8 +12,8 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="./icon.svg" />
     <title>Sugar Ants Demo — Медитативная колония</title>
-    <script type="module" crossorigin src="./assets/index-DEkb2SDU.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B5d5dgG3.css">
+    <script type="module" crossorigin src="./assets/index-DmOC2qtf.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BcoBCsiG.css">
   </head>
   <body>
     <div id="app">
@@ -149,6 +149,7 @@
         </div>
 
         <div class="hud-group hud-right">
+          <button id="btn-guide-hud" class="icon-btn" title="Книга-гайд по муравьям, породам и находкам">📖</button>
           <button id="btn-settings-hud" class="icon-btn" title="Настройки и саундтрек">⚙</button>
           <button id="btn-reset-cam" class="icon-btn" title="Центрировать камеру">⌖</button>
         </div>
@@ -261,6 +262,13 @@
           <span id="beacon-fab-label" class="beacon-fab-label">Метка</span>
           <span id="beacon-fab-status" class="beacon-fab-status">Готов</span>
         </button>
+
+        <button id="btn-crush-ants" class="beacon-fab crush-fab" title="Раздавить всех активных муравьёв (X) • кулдаун 1 мин">
+          <span class="beacon-fab-key">X</span>
+          <span class="beacon-fab-icon">💥</span>
+          <span id="crush-fab-label" class="beacon-fab-label">Раздавить</span>
+          <span id="crush-fab-status" class="beacon-fab-status">Готов</span>
+        </button>
       </div>
 
       <!-- Mobile Touch Camera Controls (Classic: auto-visible on touch/mobile screens!) -->
@@ -350,6 +358,12 @@
               <span class="mbtn-accent">🏆</span>
               <span id="menu-ach-label" class="mbtn-label">АЧИВКИ</span>
               <span id="menu-ach-count" class="mbtn-meta">0/20 • +0% ⚡</span>
+            </button>
+
+            <button id="menu-btn-guide" class="mbtn mbtn-guide">
+              <span class="mbtn-accent">📖</span>
+              <span id="menu-guide-label" class="mbtn-label">ГАЙД-КНИГА</span>
+              <span id="menu-guide-meta" class="mbtn-meta">Муравьи • Породы • Находки</span>
             </button>
 
             <div class="menu-subrow menu-subrow-6">
