@@ -12,8 +12,8 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="./icon.svg" />
     <title>Sugar Ants Demo — Медитативная колония</title>
-    <script type="module" crossorigin src="./assets/index-DmOC2qtf.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BcoBCsiG.css">
+    <script type="module" crossorigin src="./assets/index-CAdwizRB.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CiywsiFu.css">
   </head>
   <body>
     <div id="app">
@@ -221,6 +221,7 @@
           <div id="epic-clear-badge" class="epic-clear-badge">✨ ШЕДЕВР ОТКРЫТ НА 100% ✨</div>
           <div id="epic-clear-title" class="epic-clear-title">Призма Света</div>
           <div id="epic-clear-sub" class="epic-clear-sub">Все блоки прогрызены — картина сияет во всей красе!</div>
+          <div id="epic-clear-stats" class="epic-clear-stats hidden"></div>
         </div>
         <div class="epic-clear-actions">
           <button id="epic-btn-save-png" class="action-btn">⬇ PNG</button>
@@ -294,22 +295,32 @@
         </div>
       </footer>
 
-      <!-- Stylish Minimalist Interactive Main Menu (No Story Mode!) -->
+      <!-- Stylish Minimalist Interactive Main Menu (Streamlined & Uncluttered!) -->
       <section id="main-menu" class="main-menu">
         <canvas id="menu-bg-canvas" class="menu-bg-canvas"></canvas>
 
-        <!-- Quick Language Switcher Icon Button (RU / EN) -->
+        <!-- Compact Corner Controls: Changelog + Currency (Top-Left) & Language (Top-Right) -->
+        <div class="menu-top-left-bar">
+          <button id="menu-btn-changelog" class="menu-corner-btn" title="История обновлений">
+            <span>📋</span>
+            <span id="menu-version-pill">v1.4.0</span>
+          </button>
+          <button id="menu-currency-pill" class="menu-corner-btn menu-currency-pill" title="Сахарная валюта — Лавка колонии">
+            <span>🍬</span>
+            <span id="menu-currency-val">0</span>
+          </button>
+        </div>
+
         <button id="menu-btn-lang" class="menu-lang-btn" title="Язык / Language">
           <span class="lang-globe" aria-hidden="true">🌐</span>
           <span id="menu-lang-code">RU</span>
         </button>
 
         <div class="menu-stage">
-          <!-- Sculptural Framed Title Lockup (reference-inspired!) -->
+          <!-- Sculptural Framed Title Lockup -->
           <div class="menu-logo-lockup">
             <div class="menu-logo-crest" aria-hidden="true">
               <svg viewBox="0 0 36 36" shape-rendering="crispEdges">
-                <!-- Glowing golden sugar cube + radiant spark -->
                 <rect x="10" y="9" width="16" height="16" fill="#ffe680" />
                 <rect x="12" y="11" width="12" height="12" fill="#fff7cc" />
                 <rect x="14" y="13" width="4" height="4" fill="#ffffff" />
@@ -334,7 +345,7 @@
             <div id="menu-tagline" class="menu-tagline">МЕДИТАТИВНАЯ СИМУЛЯЦИЯ КОЛОНИИ</div>
           </div>
 
-          <!-- Crisp Centered Tactile Menu Buttons -->
+          <!-- Clean Streamlined Menu Stack (3 Core Actions + Symmetrical 4x2 Tile Grid + Exit Row) -->
           <div class="menu-stack">
             <button id="menu-play-classic" class="mbtn mbtn-play">
               <span class="mbtn-accent">▶</span>
@@ -342,45 +353,42 @@
               <span id="menu-continue-sub" class="mbtn-meta">Призма Света</span>
             </button>
 
-            <button id="menu-play-mp" class="mbtn mbtn-mp mbtn-mp-dev" aria-disabled="true">
-              <span class="mbtn-accent">⚔</span>
-              <span id="menu-mp-label" class="mbtn-label">КООП-РЕЖИМ</span>
-              <span id="menu-mp-meta" class="mbtn-meta mbtn-meta-dev">🚧 В разработке</span>
-            </button>
+            <div class="menu-duo-row">
+              <button id="menu-btn-shop" class="mbtn mbtn-shop">
+                <span class="mbtn-accent">🛍</span>
+                <span id="menu-shop-label" class="mbtn-label">ЛАВКА</span>
+                <span id="menu-shop-meta" class="mbtn-meta">🍬 0</span>
+              </button>
 
-            <button id="menu-btn-artifacts" class="mbtn mbtn-art">
-              <span class="mbtn-accent">🏺</span>
-              <span id="menu-art-label" class="mbtn-label">СЕКРЕТНЫЕ НАХОДКИ</span>
-              <span id="menu-art-count" class="mbtn-meta">0/8 • +0 ♦</span>
-            </button>
+              <button id="menu-btn-guide" class="mbtn mbtn-guide">
+                <span class="mbtn-accent">📖</span>
+                <span id="menu-guide-label" class="mbtn-label">ГАЙД-КНИГА</span>
+              </button>
+            </div>
 
-            <button id="menu-btn-achievements" class="mbtn mbtn-ach">
-              <span class="mbtn-accent">🏆</span>
-              <span id="menu-ach-label" class="mbtn-label">АЧИВКИ</span>
-              <span id="menu-ach-count" class="mbtn-meta">0/20 • +0% ⚡</span>
-            </button>
-
-            <button id="menu-btn-guide" class="mbtn mbtn-guide">
-              <span class="mbtn-accent">📖</span>
-              <span id="menu-guide-label" class="mbtn-label">ГАЙД-КНИГА</span>
-              <span id="menu-guide-meta" class="mbtn-meta">Муравьи • Породы • Находки</span>
-            </button>
-
-            <div class="menu-subrow menu-subrow-6">
+            <div class="menu-subrow menu-subrow-8">
               <button id="menu-btn-levels" class="mbtn-mini">
                 <span>🗺</span><span id="menu-lbl-levels">Карты</span>
                 <small id="menu-progress-count">0/8</small>
+              </button>
+              <button id="menu-btn-artifacts" class="mbtn-mini">
+                <span>🏺</span><span id="menu-art-label">Находки</span>
+                <small id="menu-art-count">0/8</small>
+              </button>
+              <button id="menu-btn-achievements" class="mbtn-mini">
+                <span>🏆</span><span id="menu-ach-label">Ачивки</span>
+                <small id="menu-ach-count">0/26</small>
               </button>
               <button id="menu-btn-gallery" class="mbtn-mini">
                 <span>🖼</span><span id="menu-lbl-gallery">Галерея</span>
                 <small id="menu-gallery-count">0/8</small>
               </button>
-              <button id="menu-btn-stats" class="mbtn-mini">
-                <span>📊</span><span id="menu-lbl-stats">Статистика</span>
-              </button>
               <button id="menu-btn-mutations" class="mbtn-mini">
                 <span>🧬</span><span id="menu-lbl-mutations">Мутации</span>
                 <small id="menu-mut-count">0</small>
+              </button>
+              <button id="menu-btn-stats" class="mbtn-mini">
+                <span>📊</span><span id="menu-lbl-stats">Статистика</span>
               </button>
               <button id="menu-btn-settings" class="mbtn-mini">
                 <span>⚙</span><span id="menu-lbl-settings">Настройки</span>
@@ -389,25 +397,40 @@
                 <span>✦</span><span id="menu-lbl-credits">Авторы</span>
               </button>
             </div>
+
+            <div class="menu-utility-row">
+              <button id="menu-play-mp" class="mbtn-util mbtn-util-mp" aria-disabled="true">
+                <span>⚔</span>
+                <span id="menu-mp-label">Кооп-режим</span>
+                <small id="menu-mp-meta">🚧</small>
+              </button>
+              <button id="menu-btn-exit" class="mbtn-util mbtn-util-exit">
+                <span>🚪</span>
+                <span id="menu-exit-label">Выход</span>
+              </button>
+            </div>
           </div>
 
-          <!-- Clean Minimal Footer -->
+          <!-- Clean Minimal Footer with Full Game Hover Tooltip + Telegram -->
           <div class="menu-bottom-bar">
-            <span class="credits-author">v1.3 • made by <strong>GrAx</strong></span>
+            <span class="credits-author">v1.4.0 • made by <strong>GrAx</strong></span>
             <div class="menu-footer-links">
-              <a
-                id="menu-boosty-link"
-                data-external-link="boosty"
-                href="https://boosty.to/graxstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="boosty-link-btn"
-              >
-                <svg class="boosty-ico-svg" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor" d="M13.4 2.2 6.8 13.1c-.9 1.5-.3 3.5 1.3 4.2l1.2.5-1.1 3.7c-.2.6.5 1.1 1 .7l7.9-6.6c1.2-1 1.4-2.8.4-4l-1.5-1.8 1.6-6.2c.2-.8-.8-1.3-1.3-.7l-2.9 3.6V2.5c0-.6-.7-.9-1-.3z" />
-                </svg>
-                <span id="menu-boosty-text">Весь контент</span>
-              </a>
+              <div class="full-game-wrap" data-external-link="boosty">
+                <button
+                  id="menu-boosty-link"
+                  type="button"
+                  class="boosty-link-btn"
+                >
+                  <svg class="boosty-ico-svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M13.4 2.2 6.8 13.1c-.9 1.5-.3 3.5 1.3 4.2l1.2.5-1.1 3.7c-.2.6.5 1.1 1 .7l7.9-6.6c1.2-1 1.4-2.8.4-4l-1.5-1.8 1.6-6.2c.2-.8-.8-1.3-1.3-.7l-2.9 3.6V2.5c0-.6-.7-.9-1-.3z" />
+                  </svg>
+                  <span id="menu-boosty-text">Полная игра</span>
+                </button>
+                <div class="full-game-popover" role="tooltip">
+                  <div id="fg-tip-title" class="fg-tip-title">✦ Полная версия (разовая покупка навсегда)</div>
+                  <div id="fg-tip-body" class="fg-tip-body">4 новых масштабных уровня • больше находок • эволюция Матки • космический скин</div>
+                </div>
+              </div>
               <a
                 id="menu-tg-link"
                 data-external-link="telegram"
